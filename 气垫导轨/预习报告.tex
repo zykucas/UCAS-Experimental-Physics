@@ -1,0 +1,156 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[UTF8,heading=true]{ctex}
+\usepackage{geometry}
+\usepackage{diagbox}
+\usepackage[]{float}
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{graphics}
+\usepackage{subfig}
+
+\graphicspath{{./figure/}}
+
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {5.6}]{STSong}
+\newcommand*{\song}{\CJKfamily{zhsong}}
+
+\geometry{a4paper,left=2cm,right=2cm,top=0.75cm,bottom=2.54cm}
+
+
+\ctexset{
+    section={
+        format+=\raggedright\song\large
+    },
+    subsection={
+        name={\quad,.}
+    },
+    subsubsection={
+        name={\qquad,.}
+    }
+}
+
+\begin{document}
+\noindent
+
+\begin{center}
+
+    \textbf{\song \zihao{-2} \ziju{0.5}气垫导轨实验预习报告}
+    
+\end{center}
+
+
+
+
+\section{实验目的及要求}
+1. 观察简谐振动现象，测定简谐振动的周期。
+
+2. 求弹簧的倔强系数$k$和有效质量$m_0$。
+
+3. 观察简谐振动的运动学特征。
+
+4. 验证机械能守恒定律。
+
+5. 用极限法测定瞬时速度。
+
+6. 深入了解平均速度和瞬时速度的关系。
+
+\section{实验仪器}
+    气垫导轨、滑块、附加砝码、弹簧、U 型挡光片、平板挡光片、数字毫秒计、天平等
+\section{实验原理}
+\subsection{弹簧振子的间谐运动}
+在水平的气垫导轨上，两个相同的弹簧中间系一个滑块，滑块做往返振动，
+若不考虑滑块运动的阻力，可以认为滑块的振动是理想的简谐振动。
+
+设质量为$m_1$的滑块初始时处于平衡位置，此时每个弹簧的初始伸长量为$x_0$，当滑块偏离平衡点x
+时，受弹性力$-k_1(x+x_0)$与$-k_1(x-x_0)$的作用，其中$k_1$是弹簧的倔强系数。根据牛顿第二定律，列出其运
+动方程：$ - kx = m\ddot x$(式中 $k = 2 k_1$)
+
+式中的 $𝑚$与弹簧质量$m_1$并不相同。因为事实上弹簧也是有一定质量的，这导致了实际的运动并非严
+格的简谐振动，而是需要考虑弹簧内部形成的驻波，详细推导需要采用分离变量法解微分方程，这里直接
+给出结果：若在近似的仍欲采用简谐振动的结论，则可考虑只取一级近似，引入“弹簧有效质量”$m_0$
+
+由一级近似可计算得$m = m_1 + m_0$，$m_0$为弹簧质量的$\frac{1}{3}$，这样对应该方程的解为：
+\begin{equation}
+    x = A\sin ({\omega _0}t + {\varphi _0})\quad {\omega _0} = \sqrt {\frac{k}{m}} 
+\end{equation}
+
+其中周期与固有频率的关系为
+\begin{equation}
+    T = \frac{{2\pi }}{{{\omega _0}}} = 2\pi \sqrt {\frac{m}{k}}  = 2\pi \sqrt {\frac{{{m_1} + {m_0}}}{k}} 
+\end{equation}
+
+将上式两边平方可以得到
+\begin{equation}
+    {T^2} = \frac{{4{\pi ^2}\left( {{m_1} + {m_0}} \right)}}{k}
+\end{equation}
+
+在实验中，我们改变$m_1$，测出相应的𝑇，采用作图法获得$T-m_1$的曲线，理论上该曲线应为一条直
+线，直线的斜率为$\frac{4 \pi^2}{k}$，采用最小二乘法可以计算出该直线的斜率，进而算出劲度系数到k的值。同
+时，可以从该条直线的截距获取$m_0$的值。也可采用逐差法求解k和$m_0$的值。
+
+\subsection{简谐运动的运动学特征}
+运动方程两边同时对时间求导，即可得到
+\begin{equation}
+    v = \frac{{dx}}{{dt}} = A{\omega _0}\cos \left( {{\omega _0}t + {\varphi _0}} \right)
+\end{equation}
+
+由此可见，速度v与时间有关，且随时间的变化关系也为简谐振动，角频率为$\omega_0$，振幅为$A \omega_0$，而且
+度v的相位比位移x超前$\frac{\pi}{2}$
+
+联立x-t方程与v-t方程，消去时间t，即可得到
+\begin{equation}
+    {v^2} = \omega _0^2\left( {{A^2} - {x^2}} \right)
+\end{equation}
+
+当x=A时，v=0；当x=0时，$v =  \pm A{\omega _0}$，此时v取最大值
+
+本实验可以通过观察x和v随时间的变化规律，以及x和v之间的相位关系。利用线性拟合的方法算出角频
+率
+
+\subsection{简谐振动的机械能}
+在实验中，任何时刻系统的振动动能为
+\begin{equation}
+    {E_k} = \frac{1}{2}m{v^2} = \frac{1}{2}\left( {{m_1} + {m_2}} \right){v^2}
+\end{equation}
+
+由于此前在第一个实验项目中，已经测得弹簧的劲度系数为k，因此可以直接算得系统的弹性势能为
+（以$m_1$位于平衡位置时系统的势能为零）
+
+\begin{equation}
+    {E_p} = \frac{1}{2}k{x^2}
+\end{equation}
+
+所以系统的机械能为
+\begin{equation}
+    E = {E_k} + {E_p} = \frac{1}{2}m{\omega ^2}{A^2} = \frac{1}{2}k{A^2}
+\end{equation}
+
+上式中的k和A均不随时间变化
+
+通过测量滑块$m_1$在不同位置x的速度v，从而计算弹性势能和振动势能，并验证他们之间的相互转换
+关系和机械能守恒定律是否吻合。
+
+\subsection{瞬时速度的测量}
+设变速运动的物体在∆𝑡时间中经过的路程为$\Delta s$，则其平均速度为$\overline v  = \frac{{\Delta s}}{{\Delta t}}$
+
+当$\Delta t$与$\Delta s$均趋于0时，平均速度的极限就为物体的瞬时速度。
+
+在实验中，在倾斜的气轨上，于A点处放置一光电门，在滑块上先后安装上挡光距离不同的U形
+挡光片，使各挡光片的第一挡光边距A点为l。滑块每次自P点由静止开始下滑，分别测出相应的挡光
+时间$\Delta t$及挡光距离$\Delta s$。（设滑块由静止下滑距离l后的瞬时速度为$v_0$即第一挡光时滑块的瞬时速度），
+则有：
+\begin{equation}
+    \overline v  = \frac{{\Delta s}}{{\Delta t}} = {v_0} + \frac{1}{2}a \cdot \Delta t
+\end{equation}
+
+其中a为物体在A附近的加速度
+本实验可以通过改变挡光距离$\Delta s$观察平均速度和瞬时速度的关系，分别画出 v-t 图和 v-x 图，利用外
+推法求出瞬时速度。
+\end{document}
