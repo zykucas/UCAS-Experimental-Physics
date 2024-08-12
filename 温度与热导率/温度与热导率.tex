@@ -1,0 +1,418 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[UTF8,heading=true]{ctex}
+\usepackage{geometry}
+\usepackage{diagbox}
+\usepackage[]{float}
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{graphics}
+\usepackage{subfig}
+
+\graphicspath{{./figure/}}
+
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {5.6}]{STSong}
+\newcommand*{\song}{\CJKfamily{zhsong}}
+
+\geometry{a4paper,left=2cm,right=2cm,top=0.75cm,bottom=2.54cm}
+
+\newcommand{\experiName}{动态法测热导率与温度的测量}%实验名称
+\newcommand{\supervisor}{靳硕学}%指导教师
+\newcommand{\name}{张钰堃}
+\newcommand{\studentNum}{2022K8009926020}
+\newcommand{\class}{2}%班级
+\newcommand{\group}{08}%组
+\newcommand{\seat}{11}%座位号
+\newcommand{\dateYear}{2023}
+\newcommand{\dateMonth}{9}%月
+\newcommand{\dateDay}{26}%日
+\newcommand{\room}{教学楼427}%地点
+\newcommand{\others}{$\square$}
+
+\ctexset{
+    section={
+        format+=\raggedright\song\large
+    },
+    subsection={
+        name={\quad,.}
+    },
+    subsubsection={
+        name={\qquad,.}
+    }
+}
+
+\begin{document}
+\noindent
+
+\begin{center}
+
+    \textbf{\song \zihao{-2} \ziju{0.5}《基础物理实验》实验报告}
+    
+\end{center}
+
+
+\begin{center}
+    \kaishu \zihao{5}
+    \noindent \emph{实验名称}\underline{\makebox[28em][c]{\experiName}}
+    \emph{指导教师}\underline{\makebox[9em][c]{\supervisor}}\\
+    \emph{姓名}\underline{\makebox[6em][c]{\name}} 
+    \emph{学号}\underline{\makebox[14em][c]{\studentNum}}
+    \emph{分班分组及座号} \underline{\makebox[5em][c]{\class \ -\ \group \ -\ \seat }\emph{号}} (\emph{例}:\,1- 04- 5\emph{号})\\
+    \emph{实验日期} \underline{\makebox[3em][c]{\dateYear}} \emph{年}
+    \underline{\makebox[2em][c]{\dateMonth}}\emph{月}
+    \underline{\makebox[2em][c]{\dateDay}}\emph{日}
+    \emph{实验地点}\underline{{\makebox[4em][c]\room}}
+    \emph{调课/补课} \underline{\makebox[3em][c]{否}}
+    \emph{成绩评定} \underline{\hspace{8em}}
+    {\noindent}
+    \rule[5pt]{17.7cm}{0.2em}
+
+\end{center}
+
+\section{实验目的}
+1. 通过实验学会一种测量热导率的方法。
+
+2. 解动态法的特点和优越性。
+
+3. 认识热波，加强对波动理论的理解。
+
+4. 用电位差计测热电偶的温差电动势。
+
+5. 用平衡电桥测热敏电阻和铜电阻的温度特性曲线。
+
+6. 设计非平衡电桥实现对热敏电阻的实时测量。
+\section{实验仪器}
+用绝热材料紧裹侧表面的圆棒状样品（本实验取铜和铝两种样品），热电偶列阵
+（传感器），脉动热源及冷却装置，热电偶列阵，冷却水，DHT-2 热学实验装置温控仪，UJ36a 型携带式直流电位差计，DHQJ-5 型教学用多功能电桥
+
+\section{实验原理}
+\subsection{动态法测量热导率}
+为使问题简化，令热量沿一维传播，故将样品制成棒状，周边隔热．取一小段样品．根
+据热传导定律，单位时间内流过某垂直于传播方向上面积 A 的热量，即热流为
+\begin{equation}
+    \frac{dy}{d t}  =  - kA\frac{dT}{d x} 
+\end{equation}
+其中 k 为待测材料的热导率，A 为截面积，文中$\frac{dT}{dx}$是温度对坐标 x 的梯度。将式（1）两
+边对坐标取微分有
+\begin{equation}
+    d\frac{dq}{dt}=-kA\frac{d^2 T}{d x^2}dx  
+\end{equation}
+据能量守恒定律，任一时刻棒元的热平衡方程为
+\begin{equation}
+    C\rho Adx\frac{dT}{dt}=d\frac{dq}{dt}=-kA\frac{d^2 T}{d x^2}dx  
+\end{equation}
+其中C,$\rho$分别为材料的比热容与密度，由此可得热流方程
+\begin{equation}
+    \frac{dT}{dt} =D\frac{d^2 T}{d x^2} 
+\end{equation}
+其中$D=\frac{k}{C\rho }$,称为热扩散系数。
+式（4）的解将把各点的温度随时间的变化表示出来，具体形式取决于边界条件，若令热端
+的温度按简谐变化，即
+\begin{equation}
+    T=T_0+T_m\sin \omega t
+\end{equation}
+另一端用冷水冷却，保持恒定低温 $T_0$，则式（5）的解也就是棒中各点的温度为
+\begin{equation}
+    T = {T_0} - \alpha x + {T_m}{e^{ - \sqrt {\frac{\omega }{{2D}}} x}} \cdot \sin \left( {\omega t - \sqrt {\frac{\omega }{{2D}}} x} \right)
+\end{equation}
+其中$T_0$是直流成分，$\alpha$ 是线性成分的斜率，从式（6）中可以看出：
+a 热端(x=0)处温度按简谐方式变化时，这种变化将以衰减波的形式在棒内向冷端传播，称
+为热波。
+
+b 热波波速：
+\begin{equation}
+    V=\sqrt{2D\omega }  
+\end{equation}
+
+
+c 热波波长：
+\begin{equation}
+    \lambda =2\pi \sqrt{\frac{2D}{\omega } } 
+\end{equation}
+因此在热端温度变化的角频率已知的情况下，只要测出波速或波长就可以计算出D。然后
+再由$D=\frac{k}{C\rho } $计算出材料的热导率 k。本实验采用式（7）可得
+\begin{equation}
+    V^2=2\frac{k}{C\rho } \omega   则k=\frac{V^2C\rho }{4\pi f} =\frac{V^2C\rho }{4\pi } T
+\end{equation}
+其中，$f$、T 分别为热端温度按简谐变化的频率和周期。实现上述测量的关键是：a 热量在
+样品中一维传播，b 热端温度按简谐变化。
+
+\subsection{用电位差计测热电偶的温差电动势}
+热电偶亦称温差电偶，是由 A、B 两种不同材料的金属丝的端点彼此紧密接触而组成的。当
+两个接点处于不同温度时，在回路中就有直流电动势产生，该电动势称温差电动势或
+热电动势，测试电路如图 13 所示。当组成热电偶的材料一定时，温差电动势 $E_X$ 仅与两接点处
+的温度有关，并且两接点的温差在一定的温度范围内有如下近似关系式：
+ \begin{equation}
+    E_x\approx \alpha (t-t_0)
+ \end{equation}
+式中 $\alpha $称为温差电系数，对于不同金属组成的热电偶，$\alpha $是不同的，其数值上等于两接点温
+度差为 1℃ 时所产生的电动势。
+
+为了测量温差电动势，就需要在回路中接入电位差计，但测量仪器的引入不能
+影响热电偶原来的性质，例如不影响它在一定的温差 t-$t_0$ 下应有的电动势$E_X$值。要做到这一
+点，实验时应保证一定的条件。根据伏打定律，即在 A、B 两种金属之间插入第三种金属 C
+时，若它与 A、B 的两连接点处于同一温度 $t_0$，则该闭合回路的温差电动势与上述只有
+A、B 两种金属组成回路时的数值完全相同。所以，我们把 A、B 两根不同化学成份的金属丝
+的一端焊在一起，构成热电偶的热端(工作端)。将另两端各与铜引线(即第三种金属 C)焊接，构
+成两个同温度($t_0$)的冷端(自由端) 。
+
+铜引线与电位差计相连，这样就组成一个热电偶温度计。通常将冷端置于冰水混合物中，保持
+$t_0$ = 0℃，将热端置于待测温度处，即可测得相应的温差电动势，再根据事先校正好的曲线或
+数据来求出温度 t。热电偶温度计的优点是热容量小，灵敏度高，反应迅速，测温范围广，还
+能直接把非电学量温度转换成电学量。因此，在自动测温、自动控温等系统中得到广泛应用。
+\subsw
+\section{实验内容}
+测量铜棒和铝棒的导热率。（先测铜棒后测铝棒）
+
+实验前检查各处连接管路是否有堵塞，而后才能打开水源。开始实验前需将仪器的盖子打
+开，并仔细阅读上面的注意事项。
+
+1． 打开水源，从出水口观察流量，要求水流稳定（将阀门稍微打开即可）
+
+(1) 热端水流量较小时，待测材料内温度较高，水流较大时，温度波动较大。因此热端水流
+要保持一个合适的流速，阀门开至 1/3 开度即可。
+
+(2) 冷端水流量要求不高，只要保持固定的室温即可。
+
+(3) 调节水流的方法是保持电脑操作软件的数据显示曲线幅度和形状较好为好。
+
+(4) 两端冷却水管在两个样品中是串连的，水流先走铝后走铜。一般先测铜样品，后测铝样
+品,以免冷却水变热。
+
+(5) 实际上不用冷端冷却水也能实验，只是需要很长时间样品温度才能动态平衡。而且环
+境温度变化会影响测量。 
+
+2． 打开电源开关，主机进入工作状态
+
+3． “程控”工作方式
+
+(1) 完成前述实验步骤，调节好合适的水流量。因进水电磁阀初始为关闭状态，需要在测量
+开始后加热器停止加热的半周期内才调整和观察热端流速。
+
+(2) 打开操作软件。操作软件使用方法参见实验桌内的“实验指导”中“操作软件使用”部分说
+明。（注意：实验结束后请勿将该资料带回）
+
+(3) 接通电源。
+
+(4) 在控制软件中设置热源周期 T（T 一般为 180s）。选择铜样品或铝样品进行测量。测量顺
+序最好先铜后铝。
+
+(5) 设置 x,y 轴单位坐标。x 方向为时间，单位是秒，y 方向是信号强度，单位为毫伏(与温度
+对应)。
+
+(6) 在“选择测量点”栏中选择一个或某几个测量点。
+
+(7) 按下“操作”栏中“测量”按钮，仪器开始测量工作，在电脑屏幕上画出 T~t 曲线簇，如下
+图所示。上述步骤进行 40 分钟后，系统进入动态平衡，样品内温度动态稳定。此时按下“暂停”，
+可选择打印出曲线，或在界面顶部“文件”菜单中选择对应的保存功能，将对应的数据存储下来，
+供数据测量所用。“平滑”功能尽量不要按，防止信号失真。
+
+(8)实验结束后，按顺序先关闭测量仪器，然后关闭自来水，最后关闭电脑。这样可以防止因加
+热时无水冷却导致仪器损坏。
+
+\section{实验数据}
+    \subsection{热波波速的测量}
+    \subsubsection{动态法测铜的热导率}
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|l|1|1|}
+        \hline
+            测量点n & 1 & 2 & 3 & 4 & 5 & 6 &7&8\\ \hline
+            峰值时间t(s) & 2080.04 & 2085.04 & 2093.04 & 2099.04 & 2107.04 & 2116.04&2125.04&2131.04 \\ \hline
+           
+            波速(m/s) & 0.004 & 0.0025 & 0.0033 & 0.0025&0.0022& 0.0022 & 0.033&0.0029\\ \hline
+        \end{tabular} 
+    \end{table}
+    波速平均值：0.0029m/s ; 热导率：420.95W/m·℃；相对误差：$6.0\%$
+
+    \subsubsection{动态法测铝的热导率}
+    
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|1|1|1|1|}
+        \hline
+            测量点n & 1 & 2 & 3 & 4 &5&6\\ \hline
+            峰值时间t(s) & 2080.04 & 2088.04&2096.04 & 2109.04 & 2120.04&2034.04 \\ \hline
+            波速(m/s) & 0.0025 & 0.0025 & 0.0015 & 0.0018&0.0014& \\ \hline
+        \end{tabular}
+    \end{table}
+    波速平均值：0.0020m/s ; 热导率：217.54W/m·℃;相对误差：$8.4\%$
+    
+    \subsubsection{总结}
+    数据选择原则包括：
+    1.选择趋于稳定的曲线段，即靠后的曲线段。
+
+    2.由于测量点距离远时，波动不明显，选取距离较近的测量点。
+
+    3.由于峰值对应时间较多，选取平均值。
+
+  
+    误差原因可能有：
+    实验仪器本身精确度不够，比如热水管有可能与外界有热量交换，并不是稳定的正弦加热。另外水流速度和大小、铜样品本身的形状与性质随温度的改变也都会影响测定结果。
+    
+    注意到实验数据整体上距离热源越远，所得波速越小。样品棒的横截面积不能忽略，即不能完全忽视平行于截面的热波传播，也就是说热波传递过程中存在能量耗散。
+    
+    \subsection{温度计}
+    \subsubsection{温差电动势}
+    \begin{center}
+        室温$t=28.7^{\circ}C\quad$电动势$E_x=0.57mV\quad$冷端温度$t_0=0^{\circ}C$
+    \end{center}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+            温度$t(^{\circ}C)$ & 30.6 & 35.5 & 40 \\ \hline
+            电动势$E_x(mV)$ & 0.585 & 0.675 & 0.71 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    使用Excel绘制图像
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.8]{图片1.png}
+    \end{figure}
+
+    可见线性相关程度很高，符合实验预期。由关系式${E_x} = \alpha \left( {t - {t_0}} \right)$，
+    得到$\alpha=0.0132V \cdot ^{\circ}C$，$t_0$=1.44℃
+
+    \subsubsection{铜电阻的温度特性曲线}
+
+    \begin{center}
+        室温$t=28.7^{\circ}C\quad$电阻$R_x=57.1\Omega$
+    \end{center}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+            温度$t(^{\circ}C)$ & 30.6 & 34.9 & 40 & 45 & 49.9 \\ \hline
+            铜电阻$R_x(\Omega)$ & 57.2 & 59 & 60.6 & 62 & 62 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    使用Excel绘制图像
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.8]{图片2.png}
+    \end{figure}
+
+    可以看出线性程度较好。由公式${R_x} = {R_{{x_0}}}\left( {1 + \alpha t} \right)$，可以得到
+    $\alpha=6.62\times 10^{-3}K^{-1}$，对比理论值$\alpha=4.289\times 10^{-3}K^{-1}$，相对
+    误差约为$\%$，与理论较为符合
+
+    \subsubsection{热敏电阻的温度特性曲线}
+
+    \begin{center}
+        室温$t=28.7^{\circ}C\quad$电阻$R_T=2200\Omega$
+    \end{center}
+
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+            温度$t(^{\circ}C)$ & 30.4 & 34.9 & 39.9 & 44.9 & 50 \\ \hline
+            电阻$R_T(\Omega)$ & 2057 & 1743 & 1455 & 1219.3 & 1027 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    使用Excel绘制图像，利用$\ln {R_T} = \ln A + \frac{B}{T}$拟合
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.8]{图片3.png}
+    \end{figure}
+
+    可见线性相关程度很高，较为符合实验预期。根据公式计算得到$A=0.0216,B=3478$
+
+    \subsubsection{用非平衡电桥制作热敏电阻温度计}
+    计算得到
+    \begin{equation}
+        E = \left( {\frac{{4BT_1^2}}{{4T_1^2 - {B^2}}}} \right)m = 1.165V
+    \end{equation}
+    \begin{equation}
+        {R_2} = \frac{{B - 2{T_1}}}{{B + 2{T_1}}}{R_x}{T_1} = 1011\Omega 
+    \end{equation}
+    \begin{equation}
+        \frac{{{R_1}}}{{{R_3}}} = \frac{{2BE}}{{\left( {B + 2{T_1}} \right)E - 2B\lambda }} - 1=0.0714
+    \end{equation}
+
+    在实验中调试的值为$R_2=1017\Omega,R_1=71.4\Omega,R_3=1000\Omega$
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|l|l|l|l|l|l|}
+        \hline
+            设定温度$t(^{\circ}C)$ & 31.8 & 35 & 40 & 50 \\ \hline
+            测试电压$U_0(mV)$ & -319 & -350 & -398 & -500  \\ \hline
+            测试温度$^{\circ}C$ & 31.8& 34.9 & 39.9 & 49.9 \\ \hline
+        \end{tabular}
+    \end{table}
+
+    相对误差大致在$2\%$上下，与理论较为符合
+    
+\section{思考题}
+    \subsubsection*{如果想知道某一时刻t时材料棒上的热波，即T-x曲线，将如何做？}
+    选择一个确定时刻t，读出这一时刻所有热电偶的电压值，再根据热电偶电压-温度之间的换算关
+    系，计算出每一个位置热电偶对应的温度，从而画出该 t 时刻的热波，即T-x曲线。
+
+    \subsubsection*{为什么较后面测量点的T-t曲线振幅越来越小？}
+    因为热波在传播过程中能量存在衰减，且这个衰减是指数级的。因此后面测量点的T-x曲线振幅
+    越来越小。
+
+    \subsubsection*{为什么实验中铝棒的测温点才8个，而铜棒的测温点达到12个？}
+    由振幅的公式
+    \begin{equation}
+        A = {T_m}{e^{ - \sqrt {\frac{\omega }{{2D}}} x}} = \frac{T}{{{e^{\sqrt {\frac{{C\rho \omega }}{{2k}}} x}}}}
+    \end{equation}
+
+    分析可知，当传播距离𝑥越大，导热系数𝑘越小，则振幅𝐴越小。根据实验结果，$k_{\mbox{铜}}>k_{\mbox{铝}}$。热波在
+    传播相同的距离的前提下，其振幅在铝材料中传播的衰减速度要比在铜材料中快。因此，在测量铜的导
+    热系数的时候用到十二个热电偶，但是没有必要在测量铝的导热系数的实验中加上后面的四个，因为铝
+    衰减更快，后面的位置处几乎没有振幅。
+
+    \subsubsection*{实验（测量热导率）中误差的来源有哪些？}
+    （1）仪器精度有限：峰值处多个数值相等。
+
+    （2）样本本身的问题：样本纯度不够，或是自身发生变化，如氧化。
+
+    \subsubsection*{为什么在低温实验中常用四线式伏安法测温度，而工业仪表中常用非平衡电桥测温度？}
+    四线法精度高，可以较好地消除导线分布电阻对结果的影响，但同时成本也较高。适用于低温实验。
+
+    非平衡电桥精度相对低，大约可达到 0.1 摄氏度，对于一般工业测量完全够用。而且非平衡电桥测
+    量范围大，成本较低。适用于工业领域。
+    \subsubsection*{工业仪表中使用的三线式非平衡电桥测温度是怎么消除引线电阻的？}
+    采用三线制，将一根导线接到电桥的电源端，其余两根分别接到热电阻所在的桥臂及与其相邻的
+    桥臂上，这样消除了导线线路电阻带来的测量误差。
+
+\section{实验总结与反思}
+    
+    本次实验较为特殊的一点是，在一次加热升温的过程中测量完三个小实验的所有数据，由于加热以及
+    降温时间过长，如果不能一次测量完所有量，会使得实验总时间变得更长，降低效率。所以在实验之前
+    规划好各项流程是很有必要的。
+
+    实验前务必要预习，尤其是透彻理解实验理论与原理。如果不预习，很有可能出现一次升温没有测量完数据，浪费时间。而且对实验不熟悉不利于我们的
+    操作与思考。
+
+    做实验时，要格外留意会存在哪些带来误差的地方，并且反思这样的误差是否是可以采用别的方法，
+    从而尽可能的减少影响。
+
+    每个人都有可能会在操作中遇到更特殊的问题，甚至有可能是仪器本身的问题，这时候及时请教老
+    师是最好的选择，既能解决实验中的问题，还能在解决问题时加深对实验本身的理解。
+
+\section*{附：原始实验数据}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.16]{1.jpg}
+    \end{figure}
+    \begin{figure}[H]
+        \centering
+        \includegraphics[scale=0.16]{2.jpg}
+    \end{figure}
+
+\end{document}
