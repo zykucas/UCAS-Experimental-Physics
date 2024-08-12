@@ -1,0 +1,151 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[UTF8,heading=true]{ctex}
+\usepackage{geometry}
+\usepackage{diagbox}
+\usepackage[]{float}
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{graphics}
+\usepackage{subfig}
+
+\graphicspath{{./figure/}}
+
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {5.6}]{STSong}
+\newcommand*{\song}{\CJKfamily{zhsong}}
+
+\geometry{a4paper,left=2cm,right=2cm,top=0.75cm,bottom=2.54cm}
+
+\newcommand{\experiName}{简单电学实验}%实验名称
+\newcommand{\name}{张钰堃}
+\newcommand{\studentNum}{2022K8009926020}
+\newcommand{\dateYear}{2023}
+\newcommand{\dateMonth}{10}%月
+\newcommand{\dateDay}{10}%日
+\newcommand{\room}{教学楼702}%地点
+\newcommand{\others}{$\square$}
+
+\ctexset{
+    section={
+        format+=\raggedright\song\large
+    },
+    subsection={
+        name={\quad,.}
+    },
+    subsubsection={
+        name={\qquad,.}
+    }
+}
+
+\begin{document}
+\noindent
+
+\begin{center}
+
+    \textbf{\song \zihao{-2} \ziju{0.5}《基础物理实验》实验报告}
+    
+\end{center}
+
+
+\begin{center}
+    \kaishu \zihao{5}
+    \noindent \emph{实验名称}\underline{\makebox[14em][c]{\experiName}}
+    \emph{姓名}\underline{\makebox[6em][c]{\name}} 
+    \emph{学号}\underline{\makebox[14em][c]{\studentNum}}
+    \emph{实验日期} \underline{\makebox[3em][c]{\dateYear}} \emph{年}
+    \underline{\makebox[2em][c]{\dateMonth}}\emph{月}
+    \underline{\makebox[2em][c]{\dateDay}}\emph{日}
+    \emph{实验地点}\underline{{\makebox[4em][c]\room}}
+    \emph{调课/补课} \underline{\makebox[3em][c]{否}}
+    \emph{成绩评定} \underline{\hspace{8em}}
+    {\noindent}
+    \rule[5pt]{17.7cm}{0.2em}
+
+\end{center}
+
+\section{实验目的及要求}
+1.测量非线性元件的伏安曲线
+
+2.整流电路和电容特性
+
+\section{实验仪器}
+发光LED/二极管1N4007/稳压二极管、小灯泡、数字电源、模拟横流恒压电源、模拟电源、万用表、转接头、面包板
+\section{实验内容}
+\subsection{测量发光二极管的伏安曲线}
+1、使用万用表测量电阻阻值和二极管元件的正向导通压降。并估算、选用电源电压、电阻。
+
+2、设计、搭建电路，选择合适的电源电压和万用表档位、量程。
+
+3、测量、绘制伏安特性曲线
+\subsection{整流滤波电路}
+1、用万用表测量电容值。
+
+2、搭建二极管整流桥电路。使用一个电阻作为负载。观察、比较滤波前后的波形和幅值变化。
+
+3、在电路中加入不同大小的电容进行滤波，比较大电容、有电容、无电容的波形变化。
+
+4、用信号发生器产生方波，用不同的电阻与电容串联，观察充放电过程、计算充电常数。
+
+
+\section{实验电路设计与数据分析}
+\subsection{测量发光二极管的伏安曲线}
+\subsubsection{电路设计}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{图片1.png}
+    \caption{电路图}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{1.png}
+    \caption{电路实现}
+\end{figure}
+数据处理：
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|l|l|l|1|1|1|1|1|1|}
+    \hline
+        电压(V) &1.72 & 1.74&1.76&1.77&1.78&1.79&1.80&1.83&1.85&1.90&1.95&2.00 \\ \hline
+        电流(mA) & 0.11 & 0.21&0.33&0.42&0.53&0.70&0.95&1.94&2.40&5.75&10.52&16.87 \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{3.png}
+    \caption{原始数据记录}
+\end{figure}
+数据中有两组疑似为记录错误，在统计时去除
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{pic3.png}
+    \caption{数据分析}
+\end{figure}
+上图说明发光二极管的伏安特性确实存在指数关系，与公式$I=I_s(e^{\frac{U}{U_r}}-1)$吻合
+\subsubsection{整流滤波电路}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{pic6.png}
+    \includegraphics[scale=0.4]{pic5.png}
+    \caption{半波整流与全波整流电路}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.4]{4.png}
+    \caption{桥式整流电路}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.5]{5.png}
+    \caption{整流结果}
+\end{figure}
+实际实验时，利用桥式整流电路并不能得到完美的波形，这是因为二极管存在导通电压，在输入电压低于或约等于导通电压时，二极管
+不会导通（电阻趋于无穷大），因此电阻不会有分压，导致波形低于导通电压的部分被截断
+\end{document}
