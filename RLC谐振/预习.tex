@@ -1,0 +1,242 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[UTF8,heading=true]{ctex}
+\usepackage{geometry}
+\usepackage{diagbox}
+\usepackage[]{float}
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{caption}
+\usepackage{cite}
+\usepackage{graphics}
+\usepackage{subfig}
+
+\graphicspath{{./figure/}}
+
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {5.6}]{STSong}
+\newcommand*{\song}{\CJKfamily{zhsong}}
+
+\geometry{a4paper,left=2cm,right=2cm,top=0.75cm,bottom=2.54cm}
+
+\newcommand{\experiName}{RLC电路的谐振与暂态过程}%实验名称
+\newcommand{\supervisor}{黄金浩}%指导教师
+\newcommand{\name}{张钰堃}
+\newcommand{\studentNum}{2022k8009926020}
+\newcommand{\class}{2}%班级
+\newcommand{\group}{08}%组
+\newcommand{\seat}{11}%座位号
+\newcommand{\dateYear}{2023}
+\newcommand{\dateMonth}{10}%月
+\newcommand{\dateDay}{24}%日
+\newcommand{\room}{教学楼709}%地点
+\newcommand{\others}{$\square$}
+
+\ctexset{
+    section={
+        format+=\raggedright\song\large
+    },
+    subsection={
+        name={\quad,.}
+    },
+    subsubsection={
+        name={\qquad,.}
+    }
+}
+
+\begin{document}
+\noindent
+
+\begin{center}
+
+    \textbf{\song \zihao{-2} \ziju{0.5}《基础物理实验》预习报告}
+    
+\end{center}
+
+
+\begin{center}
+    \kaishu \zihao{5}
+    \noindent \emph{实验名称}\underline{\makebox[28em][c]{\experiName}}
+    \emph{指导教师}\underline{\makebox[9em][c]{\supervisor}}\\
+    \emph{姓名}\underline{\makebox[6em][c]{\name}} 
+    \emph{学号}\underline{\makebox[14em][c]{\studentNum}}
+    \emph{分班分组及座号} \underline{\makebox[5em][c]{\class \ -\ \group \ -\ \seat }\emph{号}} (\emph{例}:\,1- 04- 5\emph{号})\\
+    \emph{实验日期} \underline{\makebox[3em][c]{\dateYear}} \emph{年}
+    \underline{\makebox[2em][c]{\dateMonth}}\emph{月}
+    \underline{\makebox[2em][c]{\dateDay}}\emph{日}
+    \emph{实验地点}\underline{{\makebox[4em][c]\room}}
+    \emph{调课/补课} \underline{\makebox[3em][c]{否}}
+    \emph{成绩评定} \underline{\hspace{8em}}
+    {\noindent}
+    \rule[5pt]{17.7cm}{0.2em}
+\end{center}
+
+\section{实验目的}
+1. 研究 RLC 电路的谐振现象。
+
+2. 了解 RLC 电路的相频特性和幅频特性。
+
+3. 用数字存储示波器观察 RLC 串联电路的暂态过程，理解阻尼振动规律。
+\section{实验仪器与用具}
+标准电感，标准电容，100$\Omega $，标准电阻，电阻箱，电感箱，电容箱，函数发生器，示波器，
+数字多用表，导线等。
+\section{实验原理}
+\subsection{串联谐振}
+RLC 串联电路如图 1 所示。其总阻抗$\left\lvert Z\right\rvert $、电压u与电流i之间的相位差$\varphi $、电流i分别为
+\begin{equation}
+    \left\lvert Z\right\rvert=\sqrt{R^2+(\omega L-\frac{1}{\omega C} )^2}  
+\end{equation}
+\begin{equation}
+    \varphi =\arctan \frac{\omega L-\frac{1}{\omega C} }{R} 
+\end{equation}
+\begin{equation}
+   i= \frac{u}{\sqrt{R^2+(\omega L-\frac{1}{\omega C} )} } 
+\end{equation}
+式中$\omega =2\pi f$为角频率，$\left\lvert Z\right\rvert $、$\varphi$ 、i都是f的函数
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{1.png}
+    \caption{RLC串联电路}
+\end{figure}
+图 2（a）、（b）、（c）分别为 RLC 串联电路的阻抗、相位差、电流随频率的变化曲线。其中图 2（b）$\varphi -f$曲线称为相频特性曲线；图 2（c）
+$i-f$曲线称为幅频特性曲线，它表示在总电压u保持不变的条件下i随f的变化曲线。相频特性曲线和幅频特性曲线有时统称为频率响应特
+性曲线。
+
+由曲线图可以看出，存在一个特殊的频率$f_0$，特点为：
+（1）当$f<f_0$时，$\varphi <0$,电流的相位超前于电压，整个电路呈电容性，且随f降低，$\varphi$ 趋近于-$\frac{\pi }{2}$；而当$f>f_0$时，$\varphi >0$，电流的相位落后于电压，整个电路呈电感性，且随
+f升高，$\varphi$ 趋近于$\frac{\pi }{2}$
+（2）随f偏离$f_0$越远，阻抗越大，而电流越小。
+（3）当$\omega L-\frac{1}{\omega C}$，即
+\begin{equation}
+    \omega _0=\frac{1}{\sqrt{LC} } 或 f_0=\frac{1}{2\pi \sqrt{LC} }
+\end{equation}
+$\varphi  = 0$，电压与电流同相位，整个电路呈纯电阻性，总阻抗达到极小值$Z_0=R$，而总电流达到极大值$i_m=\frac{u}{R}$。这种特殊的状态称为串联谐振，此时角频率
+$\omega _0$称为谐振角频率。在$f_0$处，$i − f$曲线有明显尖锐的峰显示其谐振状态，因此，有时称它为谐振曲线。谐振时，有
+\begin{equation}
+    u_L=i_m\left\lvert Z_L\right\rvert =\frac{{\omega _0}Lu}{R},\frac{u_L}{u}=\frac{{\omega _0}L}{R}=\frac{1}{R}*\sqrt{\frac{L}{C}}
+\end{equation}
+而
+\begin{equation}
+    u_C=i_m\left\lvert Z_C\right\rvert =\frac{u}{RC{\omega _0}},\frac{u_C}{u}=\frac{1}{RC{\omega _0}}=\frac{1}{R}*\sqrt{\frac{L}{C}}
+\end{equation}
+令
+\begin{equation}
+    Q=\frac{u_C}{u}=\frac{u_L}{u}=\frac{{\omega _0}L}{R}=\frac{1}{RC{\omega _0}}
+\end{equation}
+Q称为谐振电路的品质因数，简称Q值。它是由电路的固有特性决定的，是标志和衡量谐振电路性能优劣的重要的参量。
+\subsection{并联谐振}
+如图 3 所示电路，其总阻抗$\left\lvert Z_P\right\rvert$、电压u与电流i之间的相位差$\varphi $、电压u（或电流i）分别为
+\begin{equation}
+    \left\lvert Z_P\right\rvert=\sqrt{\frac{R^2+(\omega L)^2}{(1-{\omega }^2LC)^2}+(\omega CR)^2} 
+\end{equation}
+\begin{equation}
+    \arctan {\frac{\omega L-\omega C[R^2+(\omega L)^2]}{R}}    
+\end{equation}
+\begin{equation}
+    u-i\left\lvert Z_P\right\rvert =\frac{u_R}{u}\left\lvert Z_P\right\rvert 
+\end{equation}
+显然，它们都是频率的函数。当$\varphi $=0 时，电流和电压同相位，整个电路呈纯电阻性，即发生谐振。由式（8）求得并联谐振的角频率$\omega _p$
+为
+\begin{equation}
+    \omega _p=2\pi f_p=\sqrt{\frac{1}{LC}-(\frac{R}{L})^2} =\omega _0\sqrt{1-\frac{1}{Q^2}} 
+\end{equation}
+式中$\omega _0=2\pi f_0=\frac{1}{LC},Q=\frac{\omega _0L}{R}=\frac{1}{R}\sqrt{\frac{L}{C}}$,可见，并联谐振频率$f_p$与$f_0$稍有不同，
+当Q >> 1时，$\omega _p\approx \omega _0$, $f_P\approx f_0$。
+
+图 4（a）、（b）、（c）分别为 RLC 并联电路的阻抗、相位差、电流或电压随频率的变化曲线。
+由（b）图$\varphi  − f$曲线可见，在谐振频率$f=f_P$两侧，当$f<f_P$,$\varphi >0$，电流的相位落后于电压，整个电路呈电感性；当
+$f>f_P$,$\varphi <0$,电流的相位超前于电压，整个电路呈电容性。
+
+显然，在谐振频率两边区域，并联电路的电抗特性与串联电路时截然相反。由（a）图$\left\lvert Z_p\right\rvert-f$线和（c）图i − f
+曲线可见，在$f={f_p}^'$处（注意：${f_p}^'$与$f_p$稍有不同）总阻抗达到极大值，总电流达到极小值，而在${f_p}^'$两侧，随f偏离
+${f_p}^'$越远，阻抗越小，电流越大。不言而喻，这种特性，与串联电路时完全相反。（c）图u − f曲线为在总电流保持不变的条件下，电感（或电容）两端电压
+u随频率的变化曲线。
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{4.png}
+\end{figure}
+与串联谐振类似，可用品质因数Q，即
+\begin{equation}
+    Q_1=\frac{\omega _0L}{R}=\frac{1}{R\omega _0C};Q_2=\frac{i_c}{i}\approx \frac{i_L}{i};Q_3=\frac{f_0}{\Delta f}
+\end{equation}
+标志并联谐振电路的性能优劣，其意义也类同。不过，此时$i_L\approx i_C = iQ$，谐振支路中的电流为总电流的Q倍。因此，有时称并联谐振为电流谐振。
+\subsection{ RLC 电路的暂态过程}
+电路如图 5。先观察放电过程，即开关 S 先合向“1”使电容充电至 E，然后把 S 倒向“2”，电容就在闭合的
+RLC 电路中放电。电路方程为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{5.png}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{19.png}
+\end{figure}
+又将$ i = C\frac{d{u_C}}{dt}$代入得
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.7]{8.png}
+\end{figure}
+根据初始条件t = 0，$u_c = E$，$\frac{d{u_c}}{dt}=0$解方程。方程的解分为 3 种情况：
+
+(1)$R^2<\frac{4L}{C}$属于阻尼较小的情况。引入阻尼系数$\zeta  =\frac{R}{2}\sqrt{\frac{C}{L}} $𝐿
+后，对应于$\zeta $< 1。此时方程的解为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{7.png}
+\end{figure}
+其中时间常量为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{9.png}
+\end{figure}
+衰减振动的角频率为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{10.png}
+\end{figure}
+$U_C$随时间变化的规律如图曲线 I 所示，即阻尼振动状态。此时振动的振幅呈指数衰减。$\tau $的
+大小决定了振幅衰减的快慢，$\tau $越小，振幅衰减越迅速。
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.6]{11.png}
+\end{figure}
+如果$R^2<<\frac{4L}{C}$，通常是 R 很小的情况，振幅的衰减很缓慢
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{12.png}
+\end{figure}
+此时近似为 LC 电路地自由振动，$\omega _0$为 R=0 时 LC 回路的固有频率。衰减振动的周期
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{13.png}
+\end{figure}
+(2)$R^2>\frac{4L}{C}$,即阻尼系数$\zeta $> 1,1。对应于过阻尼状态，其解为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{14.png}
+    \includegraphics[scale=0.8]{15.png}
+\end{figure}
+式所表示的$u_c$ − 𝑡的关系曲线见图 6 中的曲线 II，它是以缓慢的方式逐渐回零。可以证明，
+若 L 和 C 固定，随电阻 R 的增长，$u_c$衰减到零的过程更加缓慢。
+(3)$R^2=\frac{4L}{C}$，即阻尼系数$\zeta $= 1。对应于临界阻尼状态，其解为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{16.png}
+\end{figure}
+其中$\tau $ = 2𝐿/𝑅。它是从过阻尼到阻尼振动过渡的分界点，$u_c$ − 𝑡的关系见图 6 中的曲线 III。
+对于充电过程，即开关 S 先在位置“2”，待电容放电完毕，再把 S 倒向“1”，电源 E 将对电
+容充电，于是电路方程变为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{17.png}
+\end{figure}
+初始条件为t = 0 时，$u_c$ = 0，$\frac{d{u_c}}{dt} = 0$。方程解为
+\begin{figure}[H]
+    \centering
+    \includegraphics[scale=0.8]{18.png}
+\end{figure}
+\end{document}
