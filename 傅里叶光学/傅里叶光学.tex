@@ -1,0 +1,430 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[UTF8,heading=true]{ctex}
+\usepackage{geometry}
+\usepackage{diagbox}
+\usepackage[]{float}
+\usepackage{xeCJK}
+\usepackage{indentfirst}
+\usepackage{multirow}
+\usepackage[section]{placeins}
+\usepackage{caption}
+
+\setCJKfamilyfont{zhsong}[AutoFakeBold = {5.6}]{STSong}
+\newcommand*{\song}{\CJKfamily{zhsong}}
+
+\geometry{a4paper,left=2cm,right=2cm,top=0.75cm,bottom=2.54cm}
+
+\newcommand{\experiName}{傅里叶光学基础}%实验名称
+\newcommand{\supervisor}{王研}%指导教师
+\newcommand{\name}{张钰堃}
+\newcommand{\studentNum}{2022K8009926020}
+\newcommand{\class}{2}%班级
+\newcommand{\group}{08}%组
+\newcommand{\seat}{11}%座位号
+\newcommand{\dateYear}{2023}
+\newcommand{\dateMonth}{11}%月
+\newcommand{\dateDay}{21}%日
+\newcommand{\room}{705}%地点
+\newcommand{\others}{$\square$}
+
+\ctexset{
+    section={
+        format+=\raggedright\song\large
+    },
+    subsection={
+        name={\quad,.}
+    },
+    subsubsection={
+        name={\qquad,.}
+    }
+}
+
+\begin{document}
+\noindent
+
+\begin{center}
+
+    \textbf{\song \zihao{-2} \ziju{0.5}《基础物理实验》实验报告}
+    
+\end{center}
+
+
+\begin{center}
+    \kaishu \zihao{5}
+    \noindent \emph{实验名称}\underline{\makebox[28em][c]{\experiName}}
+    \emph{指导教师}\underline{\makebox[9em][c]{\supervisor}}\\
+    \emph{姓名}\underline{\makebox[6em][c]{\name}} 
+    \emph{学号}\underline{\makebox[14em][c]{\studentNum}}
+    \emph{分班分组及座号} \underline{\makebox[5em][c]{\class \ -\ \group \ -\ \seat }\emph{号}} (\emph{例}:\,1- 04- 5\emph{号})\\
+    \emph{实验日期} \underline{\makebox[3em][c]{\dateYear}} \emph{年}
+    \underline{\makebox[2em][c]{\dateMonth}}\emph{月}
+    \underline{\makebox[2em][c]{\dateDay}}\emph{日}
+    \emph{实验地点}\underline{{\makebox[4em][c]\room}}
+    \emph{调课/补课} \underline{\makebox[3em][c]{否}}
+    \emph{成绩评定} \underline{\hspace{8em}}
+    {\noindent}
+    \rule[5pt]{17.7cm}{0.2em}
+
+\end{center}
+
+\section{实验目的及要求}
+    1. 掌握一维导轨上光路的调节。\par
+    2. 通过搭建阿贝成像光路和观察不同空间滤波器的效果，体会和理解成像过程，理解频谱面、谱空间与实空
+    间对应关系、空间滤波、衍射等物理概念。\par
+    3. 体会和掌握光学 4F 成像系统的组织和搭建；在前面阿贝成像实验的基础上，进一步体会更为复杂的
+    光学信息处理。\par
+    4. 在基本空间滤波的基础上，进一步体会光栅衍射的色散效果和选频滤波操作，掌握θ调制假彩色编码
+    的选频滤波和色散选区滤波的原理；并利用提前预制分区信息的光栅图案，实现该图像的假彩色编码\par
+    5.将透射光栅放入光路中，观察衍射图样，并根据光栅方程算出光栅常数d，理解衍射的过程。\par
+    6.通过光谱仪测量激光或白光的光栅衍射光的光谱和波长，判断和经验是否一致。
+
+\section{实验仪器}
+    \subsection{阿贝成像与基本空间滤波}
+    激光器组件 $\quad$激光器、棱镜夹持器、一维平移台、宽滑块、支杆和套筒\par
+    扩束镜组件 $\quad$凹透镜$(\varPhi 6,f-10mm)$、透镜架、滑块、支杆和套筒\par
+    准直镜组件 $\quad$凸透镜$(\varPhi 40,f-80mm)$、透镜架、滑块、支杆和套筒\par
+    光栅字组件 $\quad$光栅字$(\varPhi 40,10$ 线$/mm)$、滑块、支杆和套筒\par
+    变换透镜组件 $\quad$凸透镜$(\varPhi 76,f-175mm)$、镜架、滑块、支杆和套筒\par
+    滤波器组件 $\quad$滤波器（低通、方向滤波）、干板架、滑块、支杆和套筒\par
+    白屏组件 $\quad$白屏、干板架、滑块、支杆和套筒
+
+    \subsection{光学4F系统成像}
+    光源组件 $\quad$半导体激光器$(650nm)$一维平移台、宽滑块、支杆和套筒\par
+    准直镜组件 $\quad$凹透镜$(\varPhi 6,f-9.8mm)$、凸透镜$(\varPhi 25,f-80mm)$、透镜架、滑块、支杆和套筒\par
+    调制物组件 $\quad$物板、干板架、滑块、支杆和套筒\par
+    变换透镜组件 $\quad$凸透镜$(\varPhi 40,f-150mm)$两个、镜架、滑块、支杆和套筒\par
+    滤波器组件 $\quad$滤波器（低通、方向滤波）、精密平移台、干板夹、滑块、支杆和套筒\par
+    白屏组件 $\quad$白屏、干板架、滑块、支杆和套筒
+
+    \subsection{假彩色编码}
+    光源组件 $\quad$白光 LED、一维平移台、宽滑块、支杆和套筒\par
+    准直镜组件 $\quad$凸透镜$(\varPhi 40，f-80mm)$、透镜架、滑块、支杆和套筒\par
+    调制物组件 $\quad$天安门光栅$(100 $线$/mm)$、干板架、滑块、支杆和套筒\par
+    变换透镜组件 $\quad$凸透镜$(\varPhi 76，f-175mm)$、镜架、滑块、支杆和套筒\par
+    滤波器组件 $\quad$滤波器、干板架、滑块、支杆和套筒\par
+    白屏组件 $\quad$白屏、干板架、滑块、支杆和套筒
+
+    \subsection{光栅和光栅仪器}
+    透射光栅、$OTO \enspace SE1040$便携式光栅光谱仪、$1200$线$/mm$光栅、CCD感光元件、23$\mu m$狭缝 
+
+\section{实验原理}
+    \subsection{阿贝成像与基本空间滤波}
+    1.任何一个物体对于一个单色平行入射的相干光源的调整可以理解为一系列沿空间方向变化的余弦光栅
+    的总和，也就相当于做了傅里叶变换。因为x与y方向是独立的，因此我们先考虑光栅x方向的变化。设不同
+    频率的余弦光栅的空间频率为$f_i$，那么波前为：
+    \begin{equation}
+        U\left( {x,y} \right) = A\left( {{t_0} + {t_1}\cos 2\pi {f_i}x} \right)
+    \end{equation}
+
+    2.仅考虑一个单频信息$f_i$，经过物镜变换后，光场会在后焦面形成三个点状衍射斑$S_0$,$S_{+1}$和$S_{-1}$。
+    这三个点状衍射斑中，$S_0$位于x,y平面的中心，$S_{+1}$和$S_{-1}$分别对称地分布在x轴方向
+    的偏轴位置上，偏轴距离满足：
+    \begin{equation}
+        {S_{ \pm 1}} =  \pm F\tan {\theta _i}
+    \end{equation}
+
+    其中\par
+    \begin{equation}
+        \sin {\theta _i} = {f_i}\lambda 
+    \end{equation}
+
+    这三个相干点光源成为新的次级光源发射球面波，三个点光源的光场复振幅为
+    \begin{equation}
+        {A_0} \propto {A_1}{t_0}{e^{ikL\left( {B{S_0}} \right)}}
+    \end{equation}
+    \begin{equation}
+        {A_{ + 1}} \propto \frac{1}{2}{A_1}{t_1}{e^{ikL\left( {BS{ _{ + 1}}} \right)}}
+    \end{equation}
+    \begin{equation}
+        {A_{ - 1}} \propto \frac{1}{2}{A_1}{t_1}{e^{ikL\left( {B{S_{ - 1}}} \right)}}
+    \end{equation}
+
+    这三个相干点光源在像平面形成干涉，其干涉场最终结果为
+    \begin{equation}
+        {U_{im}}\left( {x',y'} \right) = K{e^{ik\frac{{{{x'}^2} + {{y'}^2}}}{{2z}}}}{A_1}\left( {{t_0} + {t_1}\cos 2\pi {{f'}_i}x'} \right)
+    \end{equation}
+
+    从上述公式可以看出，物原本的信息可以重构为几何上相似但是空间频率为${f'_i}$的信号。在像平面上，
+    像是由${f'_i}$组合的像，其放大率为$V=\frac{{{{f'}_i}}}{{{f_i}}}$。在频谱面上$S_0$对应的是
+    物信息中0频信息$A_1t_0$，位置处于面内的原点；正负两方向衍射点$S_{+1},S_{-1}$，代表指定
+    频率${f'}_i$的信息$A_1t_1$，位置由焦距和衍射角决定。
+
+    \subsection{光学4F系统成像}
+    单透镜成像时，像场的函数为
+    \begin{equation}
+        {U_{im}}\left( {x',y'} \right) = K{e^{ik\frac{{{{x'}^2} + {{y'}^2}}}{{2z}}}}{U_{ab}}\left( {\frac{{x'}}{V},\frac{{y'}}{V}} \right)
+    \end{equation}
+    
+    像场函数与原物场函数差一个相位因子函数。在相干光学中，很多时候需要保证处理后的图像的相位与原物场
+    的相位一致。
+
+    光学4F图像处理系统使用两个透镜依次实现傅里叶变换和傅里叶逆变换的光学操作。在4F图像处理
+    系统下，物场函数位于傅里叶变换透镜的焦距处，成像与无穷远处，因此式(7)中相位因子趋于1，
+    傅里叶逆变换透镜把无穷远的像重新整合在了后焦面上，在无滤波和放大倍率为1时，4F图像处理系统
+    所成的像场函数严格复制了物场函数。
+
+    \subsection{假彩色编码}
+    我们可以使用白光光源来照明一个分区事先预置了不同取向光栅的天安门图案，然后分别使用颜色
+    滤波器和自制的空间选色滤波器，来实现天安门图像的选区假彩色编码。
+
+    实验中天空、天安门、草地三个区域是通过三次分别曝光预置了不同方向的光栅刻线，空间频率为
+    100线$/mm$。一个白光光源照射物面上的被调制物后，携带了物信息的衍射场会继续向前传播。
+    衍射光的强度分布与光的频率有关。入射光为白光，经过光栅后不同颜色的光会分散开，开始
+    呈现多彩颜色。衍射场经透射镜重新汇聚，在频谱面上会形成较清晰的彩色频谱花样。由于天安门
+    花样上不同区域的光栅方向是不同的，所以衍射花样会沿三个不同的方向展开，呈现彩色的带状
+    花样。因此可以用三个不同方向不同颜色的彩色滤片来过滤不同方向的衍射条纹，或使用一张
+    只允许特定部位的衍射斑通过的白纸都可以实现对不同区域的假彩色编码。
+
+    \subsection{光栅和光谱仪器}
+        \subsubsection{光栅衍射演示实验}
+        光栅方程
+        \begin{equation}
+            d\sin \theta  = m\lambda ,m \in Z
+        \end{equation}
+
+        我们已知激光的波长，根据衍射图样衍射点之间的距离和光栅距离屏的距离可以算出
+        光栅的光栅常数
+
+        \subsubsection{光栅光谱仪测光谱实验}
+        光栅光谱仪利用光栅将复杂成分的光分解成不同颜色的单色光，从而得到复杂成分的光的光谱。
+
+    \section{实验内容}
+    \subsection{阿贝成像与基本空间滤波}
+    (1)调节激光器光路平行。打开激光器，使白屏靠近激光器，在激光打到白屏上的位置做上标记。使白屏
+    逐渐远离激光器，调节激光器微调旋钮，直到激光打到白屏上的位置始终在做的标记上。\par
+    (2)参考讲义图片布置光路，从左向右为激光器组件、扩束镜组件、准直镜组件、光栅字组件
+    变换透镜组件、滤波器组件和白屏组件，组件之间距离分别为40mm,70mm,40mm,240mm,195mm,445mm。\par
+    (3)安装扩束镜，上下调整支杆使扩束光斑中心与参考中心重合，之后固定扩束镜。\par
+    (4)安装准直镜，上下调整准直镜支杆使平行光束与参考中心重合，然后固定\par
+    (5)安装光栅字，上下调节支杆使光斑正入射“光”字，然后固定。\par
+    (6)安装变换透镜，上下调整支杆使入射“光”字从变换透镜中心透过。前后移动变换透镜直到白屏上看到清晰
+    的放大倒立实像，然后固定。\par
+    (7)观察“光”字的像，仔细观察没有滤波器时像的条纹。\par
+    (8)安装滤波器，使光斑透过滤波器的中心，沿导轨前后移动滤波器，观察滤波器上的花样。
+    当衍射花样最清晰时，即为变换透镜频谱面的位置，固定滤波器支架。\par
+    (9)观察此时屏上的像，仔细观察衍射条纹。
+    (10)测试不同滤波器。在滤波器支架上使用不同的滤波器，观察屏上滤波后的效果。在此过程中不要移动
+    光学器件位置。
+    (11)自制滤波器，重复步骤(10)
+
+    \subsection{光学4F成像系统}
+        (1)在前一个实验的基础上，激光器、扩束镜、准直镜不移动，移除其他器件。\par
+        (2)把实验提供的物孔垂直安装到一个支架上；上下调整支杆使准直后的光斑中心正入射物孔，
+        然后固定支杆和物孔支架滑块。\par
+        (3)在物孔后方安装变换透镜1(f=150mm)，上下调整支杆使入射孔后的光从变换透镜中心\par
+        通过，固定支杆。移动变换透镜1使其尽可能接近物孔，固定变换透镜1支撑滑块。\par
+        (4)在变换透镜1后方放置变换透镜2(f=150mm)，上下调整支杆使入射变换透镜1后的光，
+        从变换透镜2中心通过，固定支杆。移动变换透镜2到变换透镜1两倍焦距的地方，固定变换
+        透镜2支撑滑块。\par
+        (5)在白屏上观察成像的特点，观察阿贝成像与单透镜成像的区别。\par
+        (6)在频谱面上安装滤波器，观察像的变化。
+
+    \subsection{假彩色编码}
+        \subsubsection{光路布置和调节}
+            (1)根据讲义中图片布置光路。自左向右依次为光源组件、准直镜组件、调制物组件、
+            变换透镜组件、滤波器组件和白屏组件，各组件之间距离依次为80mm,40mm,275mm,160mm
+            和335mm\par
+            (2)安装白光LED光源，调节LED光源支杆高度并固定与支杆靠近中心位置，使LED光源
+            到支杆顶端距离约为90mm\par
+            (3)在导轨右侧安装白屏，白屏尽量远一些\par
+            (4)在距离LED发光点大约80mm位置附近放置准直透镜，然后调节准直透镜高度，使LED光源
+            发光点与准直透镜中心水平对齐，并在白屏中心，然后固定准直透镜的垂直高度。\par
+            (5)水平调节准直透镜位置，直到通过其后白光成为在近处和远处的光斑大小一致的准直光。
+            然后固定准直镜支撑滑块\par
+            (6)安装天安门光栅，上下调整支杆使光斑正入射天安门中心，然后将其固定。\par
+            (7)安装变换透镜，上下调节支杆使入射光尽可能从变换透镜中心通过，此时在白屏
+            上可以看到模糊像。前后移动变换透镜直到白屏上可以看到倒立放大的实像，然后固定
+            变换透镜水平位置\par
+
+        \subsubsection{$\theta $调制及现象观察}
+            (1)安装提供的$\theta $调制滤波器到滤波器支架上，然后调整$\theta $调制滤波器的
+            正反、上下和左右位置，使得调制器上三色滤片与频谱面花样的制定分支相匹配。\par
+            (2)找一张硬纸片，将硬纸片放在频谱面上并标记三个方向需要滤波通过的颜色，然后在标记位置
+            挖去要通过的部分，再将自制滤波器放回频谱面。
+
+    \subsection{光栅和光谱仪器}
+        \subsubsection{光栅衍射演示实验}
+            (1)撤掉之前光路中的实验仪器，将光源换为激光器，将透射光栅放入光路中，并在光栅后放置白屏\par
+            (2)测量衍射斑之间的距离和光栅离白屏距离
+
+        \subsubsection{光栅光谱仪测光谱实验}
+            使用手持式光栅光谱仪和SpectraSmart软件测量激光或白光的光栅衍射光的光谱和波长，判断
+            与经验值是否一致
+
+\section{实验结果}
+    \subsection{阿贝成像与基本空间滤波}
+        \subsubsection{未安装滤波器}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{1.jpg}
+                \caption{未加滤波器时成像}
+            \end{figure}  
+
+        受制于相机像素，勉强可以看到像中心有横竖交错条纹，与理论预言一致。
+
+        \subsubsection{频谱点}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{2.jpg}
+                \caption{频谱点}
+            \end{figure}
+
+        可以看到频谱点有横向多级亮点和纵向多级亮点的叠加，与理论符合。
+        
+        \subsubsection{加入滤波器的图像}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{3.jpg}
+                \caption{加入横向滤波器成像}
+            \end{figure}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{4.jpg}
+                \caption{加入纵向滤波器成像}
+            \end{figure}
+
+        加入的滤波片取向分别为横向和纵向时，成像分别有横向条纹和纵向条纹，
+        实验现象与理论符合。
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{5.jpg}
+                \caption{加入单孔滤波器成像}
+            \end{figure}
+
+            加入单孔滤波器后，横竖条纹都消失，符合理论预言。
+
+           
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{6.jpg}
+                \caption{加入斜向滤波器}
+            \end{figure}
+
+        根据滤波器形状预测得到的图像会出现斜向的条纹，在实际实验当中可用肉眼观察到细密的斜向条纹，但由于相机像素限制无法在图片中看到条纹。
+
+        \subsubsection{实际搭建光路图}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{7.jpg}
+                \caption{阿贝成像光路}
+            \end{figure}
+
+    \subsection{光学4F系统成像}
+        \subsubsection{未加滤波器成像}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{8.jpg}
+                \caption{未加滤波器时成像}
+            \end{figure}
+
+        所得到的像的大小与物的形状几乎一致，实验现象与预期符合。
+
+        \subsubsection{加滤波器成像}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.4]{9.jpg}
+            \caption{加入纵向滤波器成像}
+        \end{figure}
+
+        加了横向滤波器后，像与物的形状大小仍然几乎一直，像中只剩纵向条纹，与理论一致。
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.4]{10.jpg}
+            \caption{加横向滤波器成像}
+        \end{figure}
+      
+        实际实验中可以用肉眼看到细密的横向条纹，但由于相机性能限制在照片中看不清楚
+            
+        \subsubsection{实际搭建光路图}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{11.jpg}
+                \caption{光学4F成像光路}
+            \end{figure}
+
+    \subsection{假彩色编码}
+        
+        \subsubsection{加入滤波器}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{12.jpg}
+                \caption{频谱点}
+            \end{figure}
+        观察频谱点图像，发现频谱点在三个方向形成衍射分布，
+        符合理论预言
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{13.jpg}
+                \caption{加入提供滤波器后在白屏上成的像}
+            \end{figure}
+        可以观察到天为蓝色，天安门为红色，草地为绿色，分别对应提供的滤波器不同方向
+        的彩色狭缝。            
+
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{14.jpg}
+                \caption{加入红色滤波器后白屏上成的像}
+            \end{figure}
+        可以看到图像基本上呈红色，与理论预言一致。
+
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.4]{15.jpg}
+            \caption{加入蓝色滤波器后白屏上成的像}
+        \end{figure}
+    可以看到图像基本上呈蓝色，与理论预言一致。但并不完全为蓝色，可能是滤波器中心位置并不完全在光路中心
+    \subsection{光栅和光谱仪器}
+        \subsubsection{光栅衍射演示实验}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.4]{16.jpg}
+                \caption{光栅衍射实验}
+            \end{figure}
+        实验中测得零级与一级衍射斑间隔18mm，光栅与屏间距80mm，根据实验仪器信息，波长650nm。经过计算
+        得到光栅常数约3.1为$ \times {10^{{\rm{ - }}3}}mm$
+        
+        \subsubsection{光栅光谱仪测光谱实验}
+            \begin{figure}[H]
+                \centering
+                \includegraphics[scale=0.8]{白光光谱.jpg}
+                \includegraphics[scale=0.8]{蓝光光谱.jpg}
+                \includegraphics[scale=0.8]{红光光谱.jpg}
+                \includegraphics[scale=0.8]{绿光光谱.jpg}
+                \caption{LED光谱}
+            \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{green1-zyk.png}
+            \includegraphics[scale=0.7]{green2-zyk.png}
+            \caption{绿光光谱拟合}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{blue1-zyk.png}
+            \includegraphics[scale=0.7]{blue2-zyk.png}
+            \caption{蓝光光谱拟合}
+        \end{figure}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[scale=0.7]{red1-zyk.png}
+            \includegraphics[scale=0.7]{red2-zyk.png}
+            \caption{红光光谱拟合}
+        \end{figure}
+
+\section{讨论}
+    \subsection{思考题}
+        \subsubsection*{$\qquad$实验中使用天安门城楼光栅本身中的城楼的窗户和门洞都是透光的，但是为什么经过所提供的的假着色滤波处理后所成的像中这些窗户和门洞是黑色的？有方法验证你的解释吗？}
+        窗户和门洞透光，光在经过这里的时候就不会发生明显的衍射现象，而是遵循直线传播的规律，与旁边产生了衍射现象的高光强区域对比，就显得这些地方偏黑色。
+    \subsection{总结}
+        实验中大部分现象与理论预言符合的较好。在观察阿贝成像和光学4f成像的实验中大部分都可以观察到较为清晰的条纹，但是可以发现有些条纹很密集有些很稀疏，受限于相机性能很多密集的条纹无法拍出来。
+        在假彩色编码的实验中，可以观察到呈现出的天安门图像大致与理想状态下的所呈现出的颜色一致，但是仍有一些很明显的差别，比如天安门无法呈现出明显的红色而是处于一种颜色交织的状态，误差原因可能是红色滤波器排放位置不合理导致受到了干扰
+        在实验中还发现在布置光路时仪器底座宽度不等，调节水平和光学器件之间的距离时会有误差。
+
+\end{document}
